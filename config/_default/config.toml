@@ -1,0 +1,4 @@
+baseURL      = "https://peaceiris.github.io/hugo-test-project/"
+theme        = "hugo-iris"
+languageCode = "en-us"
+title        = "test"

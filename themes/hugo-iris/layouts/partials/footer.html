@@ -1,0 +1,7 @@
+<footer>
+  © {{ with .Site.Params.footer.copyright.year }}{{ . }}{{ end }}
+  {{ with .Site.Params.footer.copyright.link }}<a href="{{ . }}" rel="noopener noreferrer" target=_blank>{{ end }}
+  {{ with .Site.Params.footer.copyright.name }}{{ . }}{{ end }}
+  {{ if .Site.Params.footer.copyright.link }}</a>{{ end }}
+  - Powered by <a href="https://gohugo.io" rel="noopener noreferrer nofollow" target=_blank>Hugo</a>
+</footer>
