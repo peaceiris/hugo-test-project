@@ -31,4 +31,4 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
       with:
-        emptyCommits: true
+        emptyCommits: false
