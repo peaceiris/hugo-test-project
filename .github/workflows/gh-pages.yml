@@ -32,5 +32,5 @@ jobs:
         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
-      with:
-        emptyCommits: true
+      # with:
+      #   emptyCommits: false
