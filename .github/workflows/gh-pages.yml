@@ -34,5 +34,4 @@ jobs:
         PUBLISH_DIR: ./public
       # with:
       #   emptyCommits: false
-      with:
-        keepFiles: true
+      #   keepFiles: true
