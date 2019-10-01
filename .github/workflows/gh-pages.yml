@@ -19,7 +19,7 @@ jobs:
       # uses: peaceiris/actions-hugo@master
       # with:
       #   hugo-version: 'latest'
-      run: snap install hugo
+      run: sudo snap install hugo
 
     - name: Build
       run: hugo --gc --minify --cleanDestinationDir
