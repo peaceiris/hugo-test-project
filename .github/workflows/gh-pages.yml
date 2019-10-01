@@ -8,7 +8,8 @@ on:
 jobs:
 
   build-deploy:
-    runs-on: ubuntu-18.04
+    # runs-on: ubuntu-18.04
+    runs-on: macOS-10.14
     steps:
     - uses: actions/checkout@master
       with:
@@ -19,7 +20,8 @@ jobs:
       # uses: peaceiris/actions-hugo@master
       # with:
       #   hugo-version: 'latest'
-      run: sudo snap install hugo
+      # run: sudo snap install hugo
+      run: brew install hugo
 
     - name: Build
       run: hugo --gc --minify --cleanDestinationDir
