@@ -23,16 +23,28 @@ jobs:
     - name: Build
       run: hugo --gc --minify --cleanDestinationDir
 
-    - name: Deploy
-      # uses: peaceiris/actions-gh-pages@feature/deploy_to_other_repo
-      uses: docker://peaceiris/gh-pages:v2.5.0-rc0
-      env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY_EXTERNAL }}
-        # PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./public
-        EXTERNAL_REPOSITORY: peaceiris/test-hugo-external-repo
+#    - name: Deploy
+#      # uses: peaceiris/actions-gh-pages@feature/deploy_to_other_repo
+#      uses: docker://peaceiris/gh-pages:v2.5.0-rc0
+#      env:
+#        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY_EXTERNAL }}
+#        # PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+#        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        PUBLISH_BRANCH: gh-pages
+#        PUBLISH_DIR: ./public
+#        EXTERNAL_REPOSITORY: peaceiris/test-hugo-external-repo
       # with:
         # emptyCommits: false
         # keepFiles: true
+
+    - name: Deploy (script)
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY_EXTERNAL }}
+        # PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        EXTERNAL_REPOSITORY: peaceiris/test-hugo-external-repo
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./public
+        SCRIPT_MODE: true
+      run: |
+        wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2.5.0-rc2/entrypoint.sh
+        bash ./entrypoint.sh
