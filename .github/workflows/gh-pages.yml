@@ -24,6 +24,8 @@ jobs:
     - name: Build
       run: hugo --minify
 
+    - run: ls -la ./public
+
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
       # uses: docker://peaceiris/gh-pages:latest
