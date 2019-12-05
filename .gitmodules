@@ -1,3 +1,6 @@
 [submodule "content"]
 	path = content
 	url = https://github.com/peaceiris/hugo-content-test.git
+[submodule "static"]
+	path = static
+	url = https://github.com/peaceiris/hugo-static-test.git
