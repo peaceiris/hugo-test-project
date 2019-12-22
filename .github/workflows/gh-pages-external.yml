@@ -15,15 +15,15 @@ jobs:
         fetch-depth: 1
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.2.2
+      uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: 'latest'
 
     - name: Build
-      run: hugo --gc --minify --cleanDestinationDir
+      run: hugo --minify
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.0
+      uses: peaceiris/actions-gh-pages@v2.6.0-rc0
       # uses: docker://peaceiris/gh-pages:v2.5.0
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY_EXTERNAL }}
