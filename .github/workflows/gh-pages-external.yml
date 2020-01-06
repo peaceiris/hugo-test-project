@@ -34,7 +34,7 @@ jobs:
         PUBLISH_DIR: ./public
         EXTERNAL_REPOSITORY: peaceiris/test-hugo-external-repo
       with:
-        commitMessage: ${{ github.event.commits[0].message }}
+        commitMessage: ${{ github.event.head_commit.message }}
         # emptyCommits: false
         # keepFiles: true
 
