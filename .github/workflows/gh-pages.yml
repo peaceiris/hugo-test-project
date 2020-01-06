@@ -27,7 +27,7 @@ jobs:
     - run: ls -la ./public
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.8.1-0
+      uses: peaceiris/actions-gh-pages@feat-custom-commit-message
       # uses: docker://peaceiris/gh-pages:latest
       # uses: docker://docker.pkg.github.com/peaceiris/actions-gh-pages/action:latest
       env:
@@ -36,7 +36,8 @@ jobs:
         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
-      # with:
+      with:
+        commitMessage: ${{ github.event.commits[0].message }}
         # emptyCommits: false
         # keepFiles: true
 
