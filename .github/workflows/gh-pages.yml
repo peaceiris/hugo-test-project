@@ -3,28 +3,30 @@ name: github pages
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
 
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
-        submodules: true
+    - uses: actions/checkout@v2
+
+    - name: Checkout submodules
+      shell: bash
+      run: |
+        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+        git submodule sync --recursive
+        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: 'latest'
-      # run: sudo snap install hugo
+        # extended: true
 
     - name: Build
       run: hugo --minify
-
-    - run: ls -la ./public
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
@@ -52,3 +54,30 @@ jobs:
 #      run: |
 #        wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2/entrypoint.sh
 #        bash ./entrypoint.sh
+
+  setup-hugo:
+    name: Test for Hugo Setup Action
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - 'ubuntu-18.04'
+          - 'macos-latest'
+          - 'windows-latest'
+        hugo-version:
+          - 'latest'
+          - '0.61.0'
+        extended:
+          - true
+          - false
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: ${{ matrix.hugo-version }}
+        extended: ${{ matrix.extended }}
+
+    - run: hugo version
