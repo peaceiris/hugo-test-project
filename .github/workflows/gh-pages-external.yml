@@ -47,7 +47,7 @@ jobs:
 #         # keepFiles: true
 
     - name: Deploy
-      uses: peaceiris/actions-github-pages@v3
+      uses: peaceiris/actions-github-pages@v3.1.1
       with:
         # deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY_EXTERNAL }}
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
