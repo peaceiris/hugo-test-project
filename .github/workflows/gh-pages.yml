@@ -37,7 +37,7 @@ jobs:
         echo "::set-output name=deploy_tag_name::deploy-${TAG_NAME}"
 
     - name: Deploy
-      uses: peaceiris/actions-github-pages@v3.1.4
+      uses: peaceiris/actions-github-pages@v3.1.5
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         # personal_token: ${{ secrets.PERSONAL_TOKEN }}
