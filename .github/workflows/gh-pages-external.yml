@@ -33,8 +33,8 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.4.1
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY_EXTERNAL }}
-          # personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          # deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY_EXTERNAL }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
           # github_token: ${{ secrets.GITHUB_TOKEN }}
           # publish_branch: master
           publish_dir: ./public
