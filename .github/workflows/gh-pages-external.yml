@@ -1,6 +1,7 @@
 name: github pages external
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
