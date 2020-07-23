@@ -29,6 +29,8 @@ jobs:
           echo "::set-output name=tag_name::${TAG_NAME}"
           echo "::set-output name=deploy_tag_name::deploy-${TAG_NAME}"
 
+      - run: chmod 000 ./public/sitemap.xml
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.7.0-1
         with:
