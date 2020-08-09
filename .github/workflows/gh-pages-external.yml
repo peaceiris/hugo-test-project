@@ -40,7 +40,7 @@ jobs:
           publish_dir: ./public
           external_repository: peaceiris/test-hugo-external-repo
           destination_dir: public
-          # exclude_assets: '.nojekyll'
+          exclude_assets: '*.svg,**/*.xml'
           allow_empty_commit: true
           # keep_files: true
           # force_orphan: true
