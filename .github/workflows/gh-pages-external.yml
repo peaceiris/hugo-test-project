@@ -39,7 +39,7 @@ jobs:
           # publish_branch: master
           publish_dir: ./public
           external_repository: peaceiris/test-hugo-external-repo
-          destination_dir: ./public
+          destination_dir: public
           # exclude_assets: '.nojekyll'
           allow_empty_commit: true
           # keep_files: true
